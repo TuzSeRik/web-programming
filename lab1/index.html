@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Веб-программирование - Лабораторная №1 - Главная страница</title>
+        <link rel="stylesheet" href="index.css">
+        <script src="yCheck.js"></script>
+        <script src="setTimezone.js"></script>
+    </head>
+    <body>
+        <form name="point-validation" action="response.php" method="GET">
+            <table id="main" width="90%" cellpadding="0" cellspacing="0">
+                <tr class="header">
+                    <th colspan="5"><h1><b>Солодовников Дмитрий Сергеевич - P3214 - №214016</b></h1></th>
+                </tr>
+                <tr>
+                    <th colspan="2"><h2><b>Плоскость</b></h2></th>
+                    <th colspan="3"><h2><b>Укажите исходные параметры:</b></h2></th>
+                </tr>
+                <tr>
+                    <td align="right" valign="bottom">
+                        <div>
+                            <div id="alpha-quadrant-graph">
+                                <img class="quadrant-image" id="alpha-quadrant-image" src="alpha-quadrant.png">
+                            </div>
+                        </div>
+                    </td>
+                    <td align="left" valign="bottom">
+                        <div>
+                            <div id="betta-quadrant-graph">
+                                <img class="quadrant-image" id="betta-quadrant-image" src="betta-quadrant.png">
+                            </div>
+                        </div>
+                    </td>
+                    <th class="column" rowspan="2" align="right">
+                        <h3><b>X</b></h3><br>
+                        <b>-3</b><input type="radio" id="x-selector" name="x-selector" value="-3"><br>
+                        <b>-2</b><input type="radio" id="x-selector" name="x-selector" value="-2"><br>
+                        <b>-1</b><input type="radio" id="x-selector" name="x-selector" value="-1"><br>
+                        <b>0</b><input type="radio" id="x-selector" name="x-selector" value="0" checked><br>
+                        <b>1</b><input type="radio" id="x-selector" name="x-selector" value="1"><br>
+                        <b>2</b><input type="radio" id="x-selector" name="x-selector" value="2"><br>
+                        <b>3</b><input type="radio" id="x-selector" name="x-selector" value="3"><br>
+                        <b>4</b><input type="radio" id="x-selector" name="x-selector" value="4"><br>
+                        <b>5</b><input type="radio" id="x-selector" name="x-selector" value="5"><br>
+                    </th>
+                    <th class="column" rowspan="2">
+                        <h3><b>Y</b></h3><br>
+                        <b>Введите число от<br>"-5" до "3"</b><br>
+                        <input id="y-selector" type="text" name="y-selector" onkeyup="yCheck(event)" required>
+                        <p class="warn" id="nan-warn" hidden>Введите число цифрами</p>
+                        <p class="warn" id="interval-warn" hidden>Число лежит вне интервала</p>
+                        <p class="warn" id="symbol-warn" hidden>Нельзя ввести более 16 символов</p>
+                        <input id="timezone" name="timezone" type="hidden">
+                    </th>
+                    <th class="column" rowspan="2" align="left">
+                        <h3><b>R</b></h3><br>
+                        <b>1</b><input type="radio" id="r-selector" name="r-selector" value="1" checked><br>
+                        <b>2</b><input type="radio" id="r-selector" name="r-selector" value="2"><br>
+                        <b>3</b><input type="radio" id="r-selector" name="r-selector" value="3"><br>
+                        <b>4</b><input type="radio" id="r-selector" name="r-selector" value="4"><br>
+                        <b>5</b><input type="radio" id="r-selector" name="r-selector" value="5"><br>
+                    </th>
+                </tr>
+                <tr>
+                    <td align="right" valign="top">
+                        <div>
+                            <div id="gamma-quadrant-graph">
+                                <img class="quadrant-image" id="gamma-quadrant-image" src="gamma-quadrant.png">
+                            </div>
+                        </div>
+                    </td>
+                    <td align="left" valign="top">
+                        <div>
+                            <div id="delta-quadrant-graph">
+                                <img class="quadrant-image" id="delta-quadrant-image" src="delta-quadrant.png">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="5">
+                        <br><input id="submission" type="submit" name="contain-checker" value="Проверить принадлежность точки" onclick="setTimezone();"><br>
+                    </th>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

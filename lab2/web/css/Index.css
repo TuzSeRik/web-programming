@@ -1,0 +1,139 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    background: #4d4d4d url("../img/background-image.png") no-repeat fixed center;
+    background-size: 25%;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.content{
+    width: 90%;
+    margin: 0 5%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+header{
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+}
+.header-text{
+    width: 25%;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+.header-text:first-child{
+    width: 50%;
+}
+.header-text:last-child{
+    text-decoration: underline;
+}
+.plane-n-info{
+    display: flex;
+    flex-wrap: wrap;
+}
+.plane{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    text-align: center;
+    align-items: center;
+
+}
+.quadrants{
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.plane-quadrant{
+    width: 200px;
+    height: 200px;
+}
+.plane-axis{
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    z-index: 100;
+}
+.info-panel{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.arguments{
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+}
+.shape, .numbers{
+    display: flex;
+    flex-wrap: wrap;
+}
+.shape{
+    margin-top: 10px;
+    height: 30%;
+    flex-direction: column;
+    align-content: space-around;
+    justify-content: center;
+}
+.selection{
+    margin-bottom: 5px;
+}
+.selection:nth-child(1){
+    margin-left: 0;
+}
+.selection:nth-child(2){
+    margin-left: 0;
+}
+.numbers{
+    justify-content: space-around;
+}
+.value{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+}
+.restriction-group, .submission{
+    display: flex;
+    margin-top: 5px;
+}
+.left-border, .right-border{
+    width: 40px;
+}
+.radio{
+    margin-left: 20px;
+    margin-right: 5px;
+}
+.warn{
+    visibility: hidden;
+    color: red;
+    font-size: small;
+}
+.result{
+    height: 55%;
+    display: flex;
+    border: 1px solid black;
+    margin: 5px 5px 5px 0;
+    justify-content: center;
+    align-content: center;
+}
+.submit-button{
+    width: 80%;
+    font-size: 24px;
+    background-color: red;
+    border: 1px solid black;
+    margin: 10px 10% 5px 10%;
+}
+.input{
+    width: 165px;
+}

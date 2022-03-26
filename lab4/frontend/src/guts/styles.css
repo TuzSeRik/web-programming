@@ -1,0 +1,289 @@
+.head {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    color: white;
+    background: black;
+    z-index: 100;
+}
+
+.head img {
+    float: right;
+    height: 96px;
+    margin-right: 10px;
+}
+
+.head-title {
+    display: inline-block;
+    font-size: 30px;
+    margin-left: 10px;
+}
+
+.head-author {
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+@media (max-width: 900px) {
+    .head {
+        position: relative;
+    }
+}
+
+body {
+    background: #4d4d4d;
+    overflow: paged-x;
+}
+
+@media (max-width: 1260px) {
+    h1 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 900px) {
+    h2 {
+        text-align: center;
+    }
+}
+
+.submit-button {
+    margin-top: 20px;
+    margin-right: 30px;
+    border: 2px solid black;
+    background: #d7d7d7;
+    font-family: Helvetica, Arial, sans-serif;
+    height: 50px;
+    width: 150px;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    transition-duration: 0.4s;
+}
+
+.submit-button:hover, .r-button:hover {
+    background: black;
+    color: white;
+}
+
+.submit-button:hover:disabled {
+    background: #d7d7d7;
+    color: grey;
+}
+
+@media (max-width: 900px) {
+    .submit-button {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 25px;
+    }
+}
+
+.submit-button:hover, .r-button:hover {
+    background: black;
+    color: white;
+}
+
+.submit-button:hover:disabled {
+    background: #d7d7d7;
+    color: grey;
+}
+
+.main .canvas-div {
+    float: right;
+    margin-right: 50px;
+}
+
+@media (max-width: 1260px) {
+    .main .canvas-div {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .main .canvas-div {
+        float: none;
+        margin-left: 15%;
+    }
+}
+
+.input-table {
+
+    font-size: 20px;
+}
+
+.input-table td {
+    width: 60px;
+    height: 40px;
+}
+
+@media (max-width: 900px) {
+    .input-table {
+        margin: auto;
+    }
+}
+
+.result-table {
+    border-collapse: collapse;
+    border: solid 4px black;
+    padding: 0;
+    font-size: 20px;
+    width: 100%;
+}
+
+.result-table td, .result-table th {
+    border: solid 2px black;
+    text-align: center;
+    height: 70px;
+}
+
+.result-table th {
+    border-bottom: solid 4px black;
+    padding-left: 2px;
+    padding-right: 4px;
+}
+
+@media (max-width: 900px) {
+    .result-table {
+        font-size: 18px;
+    }
+}
+
+.r-button {
+    border: 2px solid black;
+    background: #d7d7d7;
+    font-family: Helvetica, Arial, sans-serif;
+    height: 45px;
+    width: 120px;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    transition-duration: 0.4s;
+}
+
+@media (max-width: 900px) {
+    .y {
+        margin-left: 35%;
+    }
+    .r-button {
+        font-size: 90%;
+    }
+}
+
+input.change-input {
+    width: 70px;
+}
+
+.warn {
+    color: red;
+}
+
+.hidden {
+    display: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    background: #4d4d4d url(./logo320.png) no-repeat fixed center;
+    background-size: 25%;
+}
+
+.header {
+    width: 100%;
+    color: white;
+    background-color: black;
+}
+.se-logo {
+    float: right;
+    margin-top: 4px;
+    margin-right: 4px;
+}
+.title-container {
+    display: inline-block;
+    margin-left: 16px;
+}
+.pointify-author {
+    font-weight: normal;
+}
+.author, .author:visited {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+.author:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+.container {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1000;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    overflow: auto;
+}
+
+.login-window, .registration-window {
+    padding: 25px;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+.welcome {
+    text-align: center;
+}
+.login-label {
+    font-weight: bold;
+}
+.login-input {
+    display: block;
+    border: 1px solid black;
+    width: 100%;
+    margin-bottom: 1em;
+}
+.login-button {
+    padding: 5px;
+    width: 100%;
+    background-color: red;
+    border: 1px solid black;
+    font-weight: bold;
+}
+.registration-suggest {
+    display: block;
+    margin-top: 2em;
+    text-align: center;
+}
+.question-text {
+    margin: 0 0 10px;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.75);
+    padding: 20px;
+    overflow: scroll;
+    box-sizing: border-box;
+}
+
+.submit-button-login {
+    width: 100%;
+}
+
+.register {
+    margin-top: 1em;
+}
+
+.y {
+    height: 2em;
+}

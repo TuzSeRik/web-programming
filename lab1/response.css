@@ -1,0 +1,20 @@
+body{
+    background-color: #4d4d4d;
+    background-image: url(background-image.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 25%;
+    background-attachment: fixed;
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
+}
+#main{
+    background-color: #ffffffe6;
+    table-layout: fixed;
+    height: 95vh;
+    margin: auto;
+}
+#header{
+    background-color: #000000;
+    color: #ffffff;
+}

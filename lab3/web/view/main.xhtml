@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--suppress ELSpecValidationInJSP -->
+<html xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      lang="ru">
+
+<f:view>
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>Веб-программирование - Лабораторная №3</title>
+        <link rel="stylesheet" href="../resources/css/index.css" />
+        <script src="../resources/js/mainScript.js"></script>
+    </h:head>
+
+    <h:body>
+        <div class="container">
+            <div class="content">
+                <header>
+                    <div class="header-text"><h2>Солодовников Дмитрий Сергеевич</h2></div>
+                    <div class="header-text"><h2>Группа: P3214</h2></div>
+                    <div class="header-text"><h2>Вариант: 216005</h2></div>
+                </header>
+
+                <div class="plane-n-info">
+                    <div class="plane">
+                        <h2 class="plane-header">Плоскость</h2>
+                        <div class="quadrants">
+                            <canvas class="plane-axis" id="axes" width="400" height="400">Error</canvas>
+                            <p:remoteCommand name="checkCanvas" action="#{checker.canvasCheck}"
+                                             update="table-form:result-table beanData" oncomplete="drawPoint(xBean, yBean, resBean==='Да'? 'lime' : 'red');"/>
+                            <p:remoteCommand name="checkResize" action="#{checker.resizeCheck}"
+                                             update="beanData" oncomplete="drawPoint(xBean, yBean, resBean==='Да'? 'lime' : 'red'); drawStep()"/>
+                            <h:panelGroup id="beanData">
+                                <script type="text/javascript">xBean = '#{checker.xCanvas}'; yBean = '#{checker.yCanvas}'; resBean = '#{checker.resizeResult}'</script>
+                            </h:panelGroup>
+                        </div>
+                    </div>
+
+                    <div class="info-panel">
+                        <div class="arguments">
+                            <form>
+                                <div class="numbers">
+                                    <div class="value">
+                                        <h3>X</h3>
+                                        <label><p:spinner id="x-visible" class="input" name="x-visible" value="#{checker.x}" minValue="-5" maxValue="5"
+                                                         step="0.5" required="true" requiredMessage="Поле является пустым"
+                                                         validatorMessage="Число вышло за ОДЗ" converterMessage="Введено не число" placeholder="от -4 до 4">
+                                            <f:validateDoubleRange minimum="-4.0" maximum="4.0" />
+                                            <f:ajax event="change" render="errX submit"/>
+                                        </p:spinner></label>
+                                    </div>
+
+                                    <div class="value">
+                                        <h3>Y</h3>
+                                        <label><p:inputText id="y-visible" class="input" name="y-visible" value="#{checker.y}"
+                                                            required="true" requiredMessage="Поле является пустым"
+                                                            validatorMessage="Число вышло за ОДЗ" converterMessage="Введено не число" placeholder="от -5 до 3">
+                                            <f:validateDoubleRange minimum="-5.0" maximum="3.0"/>
+                                            <f:ajax event="change" render="errY submit"/>
+                                        </p:inputText></label>
+                                    </div>
+
+                                    <div class="value">
+                                        <h3>R</h3>
+                                        <label><p:slider id="r-visible" class="input" name="r-visible" value="#{checker.r}"
+                                                         for="y" minValue="2" maxValue="5" step="0.25">
+                                            <p:ajax event="slideEnd" listener="#{checker.handleSlider}" update="errR"/>
+                                        </p:slider></label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="result">
+                            <div class="table-place">
+                                <h1>История запросов</h1>
+                                <h:form id="table-form">
+                                    <h:dataTable value="#{data.points}" id="result-table" var="p" styleClass="result-table">
+                                        <h:column>
+                                            <f:facet name="header">
+                                                Координата X
+                                            </f:facet>
+                                            <h:panelGroup rendered="#{!p.edit}">
+                                                #{p.x}
+                                            </h:panelGroup>
+                                            <p:inputText rendered="#{p.edit}" value="#{p.xEdit}" styleClass="change-input" required="true">
+                                                <f:validateDoubleRange minimum="-5.0" maximum="3.0"/>
+                                            </p:inputText>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                Координата Y
+                                            </f:facet>
+                                            <h:panelGroup rendered="#{!p.edit}">
+                                                #{p.y}
+                                            </h:panelGroup>
+                                            <p:inputText rendered="#{p.edit}" value="#{p.yEdit}" styleClass="change-input" required="true">
+                                                <f:validateDoubleRange minimum="-5.0" maximum="5.0"/>
+                                            </p:inputText>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                Радиус
+                                            </f:facet>
+                                            #{p.r}
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                Попадание
+                                            </f:facet>
+                                            #{p.isCheck}
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                Время запроса
+                                            </f:facet>
+                                            #{p.date}
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                Редактирование
+                                            </f:facet>
+                                            <p:commandButton styleClass="submit-button" action="#{p.reverseEdit()}"
+                                                             rendered="#{!p.edit}" value="Изменить" disabled="#{!p.owner.equals(name.name)}" update="table-form"/>
+                                            <p:commandButton styleClass="submit-button" action="#{data.updatePoint(p)}"
+                                                             rendered="#{p.edit}" value="Сохранить" disabled="#{!p.owner.equals(name.name)}" update="table-form" oncomplete="handleSubmit()"/>
+                                        </h:column>
+                                    </h:dataTable>
+                                </h:form>
+                            </div>
+                        </div>
+                        <input class="submit-button" id="submit" type="button" value="Проверить координаты" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</f:view>
+</html>

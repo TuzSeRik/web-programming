@@ -1,0 +1,80 @@
+body{
+    background-color: #4d4d4d;
+    background-image: url(background-image.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 25%;
+    background-attachment: fixed;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+table[id]{
+    background-color: #ffffffe6;
+    table-layout: fixed;
+    height: 95vh;
+    margin: auto;
+}
+table > .header{
+    background-color: #000000;
+    color: #ffffff;
+}
+.column{
+    vertical-align:top;
+}
+input:required{
+    border-color: blue;
+}
+#submission{
+    width: 75%;
+    height: 7.5vh;
+    background-color: red;
+    margin: auto;
+}
+
+.quadrant-image{
+    max-width: 15vh;
+    max-height: 15vh;
+}
+#alpha-quadrant-graph{
+    width: 12vh;
+    height: 12vh;
+    background-color: blue;
+    border-top-left-radius:100%;
+}
+#alpha-quadrant-image{
+    margin-left:-3vh;
+    margin-top:-3vh;
+}
+#betta-quadrant-graph{
+    width: 0;
+    height: 0;
+    border-bottom: 12vh solid blue;
+    border-right: 12vh solid transparent;
+    margin-right: 3vh;
+    margin-top: 3vh;
+}
+#betta-quadrant-image{
+    margin-top:-3vh;
+}
+#gamma-quadrant-graph{
+    width: 12vh;
+    height: 12vh;
+    background-color: transparent;
+    margin-left: 3vh;
+    margin-bottom: 3vh;
+}
+#gamma-quadrant-image{
+    margin-left:-3vh;
+}
+#delta-quadrant-graph{
+    width: 12vh;
+    height: 12vh;
+    background-color: blue;
+    margin-right: 3vh;
+    margin-bottom: 3vh;
+}
+
+.warn{
+    text-align: center;
+    color: red;
+}
